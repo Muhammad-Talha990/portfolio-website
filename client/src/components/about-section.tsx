@@ -31,8 +31,8 @@ export default function AboutSection() {
               <div className="text-center" data-testid="stat-clients">
                 <div className="text-3xl font-bold gradient-text">3+</div>
                 <div className="text-gray-400">Happy Clients</div>
-              </div> */}
-            </div>
+              </div>
+            </div> */}
           </div>
           
           <div className="relative">
