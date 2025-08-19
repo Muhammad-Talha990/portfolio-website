@@ -22,13 +22,12 @@ export default function Navigation() {
           {/* Logo */}
 
           <div className="flex items-center space-x-3" data-testid="logo">
-            <div className="w-12 h-12 bg-gradient-to-r from-primary-blue to-accent-blue rounded-xl flex items-center justify-center">
-              <Brain className="text-white text-xl" />
-            </div>
+          <div className="flex items-center" data-testid="logo">
             <span className="text-xl font-bold gradient-text">
               Muhammad Talha
             </span>
           </div>
+
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex space-x-8">
