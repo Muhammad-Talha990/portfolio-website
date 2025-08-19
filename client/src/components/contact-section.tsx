@@ -54,25 +54,25 @@ export default function ContactSection() {
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/benparker",
-      icon: "🔗",
+      href: "https://www.linkedin.com/in/muhammad-talha-9634b1368/",
+      icon: "💼",
       color: "text-primary-blue"
     },
     {
       name: "GitHub",
-      href: "https://github.com/benparker",
-      icon: "🐙",
+      href: "https://github.com/Muhammad-Talha990",
+      icon: "🌐",
       color: "text-primary-blue"
     },
     {
       name: "WhatsApp",
-      href: "https://wa.me/1234567890",
+      href: "https://wa.me/+923464684073",
       icon: "💬",
       color: "text-green-400"
     },
     {
       name: "Email",
-      href: "mailto:ben@example.com",
+      href: "mailto:talha.sabir4073@example.com",
       icon: "✉️",
       color: "text-accent-blue"
     }
@@ -175,7 +175,7 @@ export default function ContactSection() {
                   <div>
                     <p className="font-semibold">Email</p>
                     <a href="mailto:ben@example.com" className="text-gray-400 hover:text-primary-blue transition-colors">
-                      ben@example.com
+                      talha.sabir4073@example.com
                     </a>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default function ContactSection() {
                   <div>
                     <p className="font-semibold">Phone</p>
                     <a href="tel:+1234567890" className="text-gray-400 hover:text-primary-blue transition-colors">
-                      +1 (234) 567-890
+                      +92 346 4684073
                     </a>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-semibold">Location</p>
-                    <p className="text-gray-400">London, United Kingdom</p>
+                    <p className="text-gray-400">Islamabad, Pakistan</p>
                   </div>
                 </div>
               </div>

@@ -7,35 +7,31 @@ export default function AboutSection() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-testid="about-subtitle">
-            Passionate about creating beautiful and functional digital experiences that make a difference.
+            Dedicated to designing and building user-friendly digital solutions that are both visually appealing and highly functional.
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-1">
-              With over 5 years of experience in digital design, I specialize in creating user-centered interfaces 
-              that combine aesthetic appeal with functional excellence. My approach focuses on understanding user needs 
-              and translating them into intuitive digital experiences.
+              Hi, I’m Muhammad Talha — a versatile software engineer based in Islamabad, Pakistan. I specialize in Flutter, web development, and diverse technology stacks. Passionate about building robust and scalable solutions, I enjoy working across the full spectrum of software engineering to create impactful digital experiences
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-2">
-              I believe that great design is not just about how it looks, but how it works. Every project I take on 
-              is an opportunity to solve complex problems through thoughtful design and innovative solutions.
-            </p>
-            
-            <div className="grid grid-cols-3 gap-6 mt-8">
+            {/* <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-2">
+            I believe great design is defined not only by its appearance but by its functionality. Each project I undertake is an opportunity to solve complex challenges through thoughtful design and innovative solutions.  </p>
+             */}
+            {/* <div className="grid grid-cols-3 gap-6 mt-8">
               <div className="text-center" data-testid="stat-projects">
-                <div className="text-3xl font-bold gradient-text">50+</div>
+                <div className="text-3xl font-bold gradient-text">5+</div>
                 <div className="text-gray-400">Projects</div>
               </div>
               <div className="text-center" data-testid="stat-experience">
-                <div className="text-3xl font-bold gradient-text">5+</div>
+                <div className="text-3xl font-bold gradient-text">2+</div>
                 <div className="text-gray-400">Years Experience</div>
               </div>
               <div className="text-center" data-testid="stat-clients">
-                <div className="text-3xl font-bold gradient-text">30+</div>
+                <div className="text-3xl font-bold gradient-text">3+</div>
                 <div className="text-gray-400">Happy Clients</div>
-              </div>
+              </div> */}
             </div>
           </div>
           
