@@ -21,7 +21,7 @@ export default function Navigation() {
             <div className="w-12 h-12 bg-gradient-to-r from-primary-blue to-accent-blue rounded-xl flex items-center justify-center">
               <Brain className="text-white text-xl" />
             </div>
-            <span className="text-xl font-bold gradient-text">Ben Parker</span>
+            <span className="text-xl font-bold gradient-text">Muhammad T Parker</span>
           </div>
           
           {/* Desktop Navigation Links */}

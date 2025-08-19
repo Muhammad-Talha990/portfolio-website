@@ -3,22 +3,22 @@ import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 export default function FloatingSocial() {
   const socialLinks = [
     {
-      href: "https://linkedin.com/in/benparker",
+      href: "https://www.linkedin.com/in/muhammad-talha-9634b1368/",
       icon: <Linkedin className="w-5 h-5" />,
       label: "LinkedIn"
     },
     {
-      href: "https://github.com/benparker",
+      href: "https://github.com/Muhammad-Talha990",
       icon: <Github className="w-5 h-5" />,
       label: "GitHub"
     },
     {
-      href: "mailto:ben@example.com",
+      href: "mailto:talha.sabir4073@example.com",
       icon: <Mail className="w-5 h-5" />,
       label: "Email"
     },
     {
-      href: "https://wa.me/1234567890",
+      href: "https://wa.me/+923464684073",
       icon: <ExternalLink className="w-5 h-5" />,
       label: "WhatsApp"
     }
