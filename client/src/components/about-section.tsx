@@ -7,14 +7,16 @@ export default function AboutSection() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-testid="about-subtitle">
-            Dedicated to designing and building user-friendly digital solutions that are both visually appealing and highly functional.
+          I’m a Computer Science student and software engineer based in Islamabad, Pakistan.  
+With expertise in Flutter, web development, and modern technology stacks, I specialize in building responsive, cross-platform, and impactful digital solutions. My focus is on merging creativity with functionality to deliver real value to both users and businesses.
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-1">
-              Hi, I’m Muhammad Talha — a versatile software engineer based in Islamabad, Pakistan. I specialize in Flutter, web development, and diverse technology stacks. Passionate about building robust and scalable solutions, I enjoy working across the full spectrum of software engineering to create impactful digital experiences
+            Enthusiastic and detail-oriented software engineer with a strong passion for mobile app development using Flutter.  
+Skilled in Dart, Firebase, REST APIs, React, and UI/UX design principles, I enjoy working across both frontend and backend technologies to create seamless digital experiences. With hands-on experience in building e-commerce, job search, and finance management apps, I’m dedicated to developing robust, scalable, and innovative solutions that address real-world challenges.
             </p>
             {/* <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-2">
             I believe great design is defined not only by its appearance but by its functionality. Each project I undertake is an opportunity to solve complex challenges through thoughtful design and innovative solutions.  </p>
@@ -37,7 +39,7 @@ export default function AboutSection() {
           
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              src="/images/about.jpg"
               alt="Modern office workspace"
               className="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
               data-testid="about-image"

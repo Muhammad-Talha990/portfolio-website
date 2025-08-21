@@ -17,7 +17,7 @@ export default function HeroSection() {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'Ben-Parker-CV.pdf';
+      link.download = 'Muhammad-Talha-CV.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -46,17 +46,37 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <div className="space-y-4">
-            <p className="text-primary-blue text-lg font-medium" data-testid="welcome-text">
+            {/* <p className="text-primary-blue text-lg font-medium" data-testid="welcome-text">
               Welcome to my portfolio!
-            </p>
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight" data-testid="hero-title">
-              Hello, my<br />
-              name's <span className="gradient-text">Ben.</span>
+            </p> */}
+            {/* <h1 className="text-5xl lg:text-6xl font-bold leading-tight" data-testid="hero-title">
+              Hello, I'm<br />
+              Muhammad <span className="gradient-text">Talha.</span>
+            </h1> */}
+
+            <h1 className="leading-tight" data-testid="hero-title">
+              <span className="block text-3xl lg:text-4xl font-medium text-gray-300">
+               <br />
+                Hello, I'm
+              </span>
+              <span className="block text-6xl lg:text-5xl font-bold">
+                <span className="text-white">Muhammad</span>{" "}
+                <span className="gradient-text">Talha</span>
+              </span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-lg" data-testid="hero-description">
-              I'm a visual designer from London.<br />
-              Currently working with <span className="text-primary-blue font-semibold">@Ideo</span> as<br />
-              a UI Consultant.
+
+
+            
+
+            <p className="text-xl text-gray-300 max-w-lg font-bold" data-testid="hero-description">
+               <br />
+               Associate Software Engineer | Flutter & Web Development            </p>
+
+            <p>
+              
+             <br /> Passionate about crafting modern, scalable, and user-friendly applications.  
+               {/* <span className="text-primary-blue font-semibold">@Ideo</span> as<br />  */}
+              {/* a UI Consultant. */}
             </p>
           </div>
           
@@ -106,7 +126,7 @@ export default function HeroSection() {
             {/* Profile Image */}
             <div className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-primary-blue/30 hover:border-primary-blue/60 transition-all duration-500 hover:scale-105 hover-glow">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800"
+                src="/images/pp.jpg"
                 alt="Professional headshot portrait"
                 className="w-full h-full object-cover"
                 data-testid="profile-image"
@@ -120,12 +140,12 @@ export default function HeroSection() {
       </div>
       
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2" data-testid="scroll-indicator">
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2" data-testid="scroll-indicator">
         <span className="text-sm text-gray-400">Scroll down</span>
         <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-primary-blue rounded-full animate-bounce mt-2" />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

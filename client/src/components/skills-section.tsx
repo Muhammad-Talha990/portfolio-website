@@ -35,20 +35,32 @@ function SkillBar({ skill, percentage }: SkillBarProps) {
 }
 
 export default function SkillsSection() {
-  const technicalSkills = [
-    { skill: "UI/UX Design", percentage: 95 },
-    { skill: "Frontend Development", percentage: 90 },
-    { skill: "Prototyping", percentage: 85 },
-    { skill: "Brand Design", percentage: 80 },
-  ];
+    const technicalSkills = [
+      { skill: "Mobile Development (Flutter, Dart)", percentage: 90 },
+      { skill: "Frontend Development (HTML, CSS, JavaScript, React)", percentage: 85 },
+      { skill: "Backend & APIs (Firebase, Node.js, REST APIs)", percentage: 80 },
+      { skill: "Database Systems (MySQL, MongoDB)", percentage: 85 },
+      { skill: "Tools (Git, GitHub, VS Code, Android Studio)", percentage: 90 },
+      { skill: "Other (Responsive UI Design, State Management, Debugging)", percentage: 65 },
+    ];
+
 
   const tools = [
-    { name: "Figma", icon: "🎨" },
-    { name: "React", icon: "⚛️" },
-    { name: "JavaScript", icon: "📜" },
-    { name: "Adobe CC", icon: "🎭" },
+    // { name: "Adobe CC", icon: "🎭" },
     { name: "HTML5", icon: "🌐" },
     { name: "CSS3", icon: "🎯" },
+    { name: "Bootstrap", icon: "🅱️" },
+    { name: "JavaScript", icon: "📜" },
+    { name: "React", icon: "⚛️" },
+    { name: "Tailwind CSS", icon: "💨" },
+    { name: "Figma", icon: "🎨" },
+    { name: "MongoDB", icon: "🍃" },
+    { name: "Firebase", icon: "🔥" },
+    // { name: "Node.js", icon: "🌲" },
+    // { name: "Express.js", icon: "🚂" },
+    // { name: "Socket.io", icon: "🔌" },
+
+
   ];
 
   return (

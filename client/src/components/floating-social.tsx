@@ -27,9 +27,9 @@ export default function FloatingSocial() {
   return (
     <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block" data-testid="floating-social">
       <div className="flex flex-col space-y-4">
-        <div className="text-xs text-gray-400 transform rotate-90 mb-4 origin-center whitespace-nowrap" data-testid="follow-text">
+        {/* <div className="text-xs text-gray-400 transform rotate-90 mb-4 origin-center whitespace-nowrap" data-testid="follow-text">
           FOLLOW ME ON
-        </div>
+        </div> */}
         {socialLinks.map((link, index) => (
           <a
             key={index}

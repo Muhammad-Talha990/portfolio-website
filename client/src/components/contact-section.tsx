@@ -86,7 +86,7 @@ export default function ContactSection() {
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-testid="contact-subtitle">
-            Ready to start a project or just want to chat? I'd love to hear from you.
+            Have a project in mind or simply want to chat? Let’s connect!
           </p>
         </div>
         
@@ -174,7 +174,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a href="mailto:ben@example.com" className="text-gray-400 hover:text-primary-blue transition-colors">
+                    <a href="mailto:talha.sabir4073@gmail.com" className="text-gray-400 hover:text-primary-blue transition-colors">
                       talha.sabir4073@example.com
                     </a>
                   </div>

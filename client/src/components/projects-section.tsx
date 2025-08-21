@@ -64,20 +64,22 @@ function ProjectCard({ title, type, description, image, github, demo, tags }: Pr
 export default function ProjectsSection() {
   const projects: ProjectCardProps[] = [
     {
-      title: "E-commerce Platform",
-      type: "UI/UX Design & Development",
-      description: "Modern e-commerce platform with intuitive user experience and seamless checkout process.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      github: "https://github.com/benparker/ecommerce",
-      demo: "https://demo.example.com",
-      tags: ["React", "UI/UX", "Figma"]
+      title: "Real Time Chat Application",
+      type: "Mern Stack",
+      description: "A real-time chat application developed using the MERN stack, featuring secure messaging, online presence, customizable themes, and an intuitive interface",
+      image: "/images/realtime_chat_app.jpg",
+      github: "https://github.com/Muhammad-Talha990/chat_application",
+      demo: "https://app.example.com",
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "Socket.io"]
+
+
     },
     {
       title: "Mobile Banking App",
       type: "Mobile UI/UX Design",
       description: "Secure and user-friendly mobile banking application with modern interface design.",
       image: "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      github: "https://github.com/benparker/mobile-app",
+      github: "https://github.com/Muhammad-Talha990",
       demo: "https://app.example.com",
       tags: ["Flutter", "Mobile", "FinTech"]
     },
@@ -86,7 +88,7 @@ export default function ProjectsSection() {
       type: "Data Visualization",
       description: "Comprehensive analytics dashboard with real-time data visualization and insights.",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-      github: "https://github.com/benparker/dashboard",
+      github: "https://github.com/Muhammad-Talha990",
       demo: "https://dashboard.example.com",
       tags: ["Vue.js", "Charts", "D3.js"]
     }
@@ -112,7 +114,7 @@ export default function ProjectsSection() {
         
         <div className="text-center mt-12">
           <a
-            href="https://github.com/benparker"
+            href="https://github.com/Muhammad-Talha990"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 glassmorphism rounded-full font-semibold hover:scale-105 transition-all duration-300 hover-glow"

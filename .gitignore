@@ -1,6 +1,20 @@
-node_modules
-dist
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# System files
 .DS_Store
-server/public
-vite.config.ts.*
+Thumbs.db
+
+# Local config
+.local
+.replit
+
+# Editor/IDE settings
+.vscode/
+.idea/
+
+# Archives
 *.tar.gz

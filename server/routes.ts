@@ -34,10 +34,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // CV download endpoint
   app.get("/api/download-cv", (req, res) => {
-    const cvPath = path.join(process.cwd(), "server", "public", "ben-parker-cv.pdf");
-    
+    // 👇 yahan apni CV ka path daalo
+    const cvPath = path.join(process.cwd(), "server", "public", "Muhammad-Talha-CV.pdf");
     if (fs.existsSync(cvPath)) {
-      res.download(cvPath, "Ben-Parker-CV.pdf", (err) => {
+      // 👇 yahan apna naam daalo
+      res.download(cvPath, "Muhammad-Talha-CV.pdf", (err) => {
         if (err) {
           res.status(500).json({ error: "Failed to download CV" });
         }
