@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
+import { createEmailService } from "./email";
 import path from "path";
 import fs from "fs";
 
@@ -11,8 +12,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
-      res.json({ success: true, contact });
+      
+      // Send email notifications
+      const emailService = createEmailService();
+      if (emailService) {
+        // Send notification to your email
+        const yourEmail = process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER;
+        if (yourEmail) {
+          const emailSent = await emailService.sendContactEmail(contact, yourEmail);
+          if (emailSent) {
+            console.log(`Contact email sent to ${yourEmail}`);
+          } else {
+            console.error('Failed to send contact email');
+          }
+        }
+        
+        // Send auto-reply to the person who submitted the form
+        const autoReplySent = await emailService.sendAutoReply(contact);
+        if (autoReplySent) {
+          console.log(`Auto-reply sent to ${contact.email}`);
+        } else {
+          console.error('Failed to send auto-reply');
+        }
+      } else {
+        console.warn('Email service not configured. Contact form submission saved but no emails sent.');
+      }
+      
+      res.json({ 
+        success: true, 
+        contact,
+        message: "Thank you for your message! I'll get back to you soon." 
+      });
     } catch (error) {
+      console.error('Contact form error:', error);
       res.status(400).json({ 
         success: false, 
         error: error instanceof Error ? error.message : "Invalid contact data" 
