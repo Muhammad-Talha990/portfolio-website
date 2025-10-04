@@ -38,7 +38,7 @@ export default function SkillsSection() {
     const technicalSkills = [
       { skill: "Mobile Development (Flutter, Dart)", percentage: 90 },
       { skill: "Frontend Development (HTML, CSS, JavaScript, React)", percentage: 85 },
-      { skill: "Backend & APIs (Firebase, Node.js, REST APIs)", percentage: 80 },
+      { skill: "Backend & APIs (Firebase, Node.js, REST APIs)", percentage: 70 },
       { skill: "Database Systems (MySQL, MongoDB)", percentage: 85 },
       { skill: "Tools (Git, GitHub, VS Code, Android Studio)", percentage: 90 },
       { skill: "Other (Responsive UI Design, State Management, Debugging)", percentage: 65 },
