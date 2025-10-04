@@ -72,7 +72,7 @@ export default function ContactSection() {
     },
     {
       name: "Email",
-      href: "mailto:talha.sabir4073@example.com",
+      href: "mailto:talha.sabir4073@gmail.com",
       icon: "✉️",
       color: "text-accent-blue"
     }
@@ -175,7 +175,7 @@ export default function ContactSection() {
                   <div>
                     <p className="font-semibold">Email</p>
                     <a href="mailto:talha.sabir4073@gmail.com" className="text-gray-400 hover:text-primary-blue transition-colors">
-                      talha.sabir4073@example.com
+                      talha.sabir4073@gmail.com
                     </a>
                   </div>
                 </div>
