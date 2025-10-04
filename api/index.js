@@ -1,23 +1,36 @@
-// Vercel serverless function for your Express app
+// Vercel serverless function for your portfolio API
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 
-// Basic Express setup
+// Enable CORS for all routes
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
+// Parse JSON bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Serve static files from dist/public
-app.use(express.static(path.join(__dirname, '../dist/public')));
-
-// Basic routes
+// Test endpoint
 app.get('/api/test', (req, res) => {
-  res.json({ message: 'API is working!' });
+  res.json({ 
+    message: 'Portfolio API is working!', 
+    timestamp: new Date().toISOString() 
+  });
 });
 
 // Contact form endpoint
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
     
@@ -29,14 +42,25 @@ app.post('/api/contact', (req, res) => {
       });
     }
 
-    // For now, just log the contact (you can add email service later)
-    console.log('Contact form submission:', { name, email, subject, message });
+    // Log the contact submission (in production, you'd save to database or send email)
+    console.log('📧 New contact form submission:', { 
+      name, 
+      email, 
+      subject, 
+      message,
+      timestamp: new Date().toISOString()
+    });
+    
+    // Simulate email sending (replace with real email service)
+    await new Promise(resolve => setTimeout(resolve, 1000));
     
     res.json({ 
       success: true, 
-      message: "Thank you for your message! I'll get back to you soon." 
+      message: "Thank you for your message! I'll get back to you soon.",
+      id: Date.now() // Simple ID for reference
     });
   } catch (error) {
+    console.error('Contact form error:', error);
     res.status(500).json({ 
       success: false, 
       error: 'Internal server error' 
@@ -46,17 +70,33 @@ app.post('/api/contact', (req, res) => {
 
 // CV download endpoint
 app.get('/api/download-cv', (req, res) => {
-  const cvPath = path.join(__dirname, '../server/public/Muhammad-Talha-CV.pdf');
-  res.download(cvPath, 'Muhammad-Talha-CV.pdf', (err) => {
-    if (err) {
+  try {
+    const cvPath = path.join(__dirname, '../server/public/Muhammad-Talha-CV.pdf');
+    
+    if (fs.existsSync(cvPath)) {
+      res.download(cvPath, 'Muhammad-Talha-CV.pdf', (err) => {
+        if (err) {
+          console.error('CV download error:', err);
+          res.status(500).json({ error: 'Failed to download CV' });
+        }
+      });
+    } else {
+      console.error('CV file not found at:', cvPath);
       res.status(404).json({ error: 'CV file not found' });
     }
-  });
+  } catch (error) {
+    console.error('CV download error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
-// Catch-all handler: send back React's index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/public/index.html'));
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'healthy', 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
 });
 
 module.exports = app;
