@@ -6,7 +6,8 @@ const fs = require('fs');
 // Load Resend if available (optional dependency)
 let Resend;
 try {
-  Resend = require('resend').Resend;
+  const resendModule = require('resend');
+  Resend = resendModule.Resend || resendModule.default || resendModule;
 } catch (e) {
   // Resend not installed, email functionality will be disabled
   console.log('Resend package not found. Email notifications disabled.');
