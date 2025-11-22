@@ -62,7 +62,8 @@ app.use((req, res, next) => {
     const port = parseInt(process.env.PORT || "5000", 10);
 
     server.listen(port, "0.0.0.0", () => {
-      log(`Serving on http://0.0.0.0:${port}`);
+      log(`Serving on http://localhost:${port}`);
+      log(`Also accessible on http://127.0.0.1:${port}`);
     });
 
     // Handle server errors

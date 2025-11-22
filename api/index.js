@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Test endpoint
-app.get('/api/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.json({ 
     message: 'Portfolio API is working!', 
     timestamp: new Date().toISOString() 
@@ -30,7 +30,7 @@ app.get('/api/test', (req, res) => {
 });
 
 // Contact form endpoint
-app.post('/api/contact', async (req, res) => {
+app.post('/contact', async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
     
@@ -69,11 +69,24 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // CV download endpoint
-app.get('/api/download-cv', (req, res) => {
+app.get('/download-cv', (req, res) => {
   try {
-    const cvPath = path.join(__dirname, '../server/public/Muhammad-Talha-CV.pdf');
+    // Try multiple possible paths for Vercel deployment
+    const cvPaths = [
+      path.join(__dirname, '../server/public/Muhammad-Talha-CV.pdf'),
+      path.join(process.cwd(), 'server/public/Muhammad-Talha-CV.pdf'),
+      path.join(process.cwd(), 'dist/public/Muhammad-Talha-CV.pdf')
+    ];
     
-    if (fs.existsSync(cvPath)) {
+    let cvPath = null;
+    for (const testPath of cvPaths) {
+      if (fs.existsSync(testPath)) {
+        cvPath = testPath;
+        break;
+      }
+    }
+    
+    if (cvPath) {
       res.download(cvPath, 'Muhammad-Talha-CV.pdf', (err) => {
         if (err) {
           console.error('CV download error:', err);
@@ -81,7 +94,7 @@ app.get('/api/download-cv', (req, res) => {
         }
       });
     } else {
-      console.error('CV file not found at:', cvPath);
+      console.error('CV file not found at any of these paths:', cvPaths);
       res.status(404).json({ error: 'CV file not found' });
     }
   } catch (error) {
@@ -91,7 +104,7 @@ app.get('/api/download-cv', (req, res) => {
 });
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({ 
     status: 'healthy', 
     timestamp: new Date().toISOString(),
