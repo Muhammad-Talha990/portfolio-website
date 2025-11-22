@@ -70,7 +70,7 @@ export default function HeroSection() {
 
             <p className="text-xl text-gray-300 max-w-lg font-bold" data-testid="hero-description">
                <br />
-               Hi, I’m Talha — Web & Mobile App Developer           </p>
+               Web & Mobile App Developer           </p>
 
             <p>
               
