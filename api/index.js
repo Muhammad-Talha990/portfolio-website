@@ -3,6 +3,15 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+// Load Resend if available (optional dependency)
+let Resend;
+try {
+  Resend = require('resend').Resend;
+} catch (e) {
+  // Resend not installed, email functionality will be disabled
+  console.log('Resend package not found. Email notifications disabled.');
+}
+
 const app = express();
 
 // Enable CORS for all routes
@@ -42,7 +51,7 @@ app.post('/contact', async (req, res) => {
       });
     }
 
-    // Log the contact submission (in production, you'd save to database or send email)
+    // Log the contact submission
     console.log('📧 New contact form submission:', { 
       name, 
       email, 
@@ -51,13 +60,44 @@ app.post('/contact', async (req, res) => {
       timestamp: new Date().toISOString()
     });
     
-    // Simulate email sending (replace with real email service)
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Send email notification if RESEND_API_KEY is configured
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const recipientEmail = process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER;
+    
+    if (resendApiKey && recipientEmail && Resend) {
+      try {
+        const resend = new Resend(resendApiKey);
+        
+        // Send email to you
+        await resend.emails.send({
+          from: 'Portfolio Contact Form <onboarding@resend.dev>', // Change this to your verified domain
+          to: recipientEmail,
+          subject: subject ? `Portfolio Contact: ${subject}` : `New Contact from ${name}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            ${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ''}
+            <p><strong>Message:</strong></p>
+            <p>${message.replace(/\n/g, '<br>')}</p>
+            <hr>
+            <p><small>Received at: ${new Date().toLocaleString()}</small></p>
+          `,
+        });
+        
+        console.log('✅ Email sent successfully to', recipientEmail);
+      } catch (emailError) {
+        console.error('❌ Failed to send email:', emailError.message);
+        // Don't fail the request if email fails - still return success
+      }
+    } else if (!resendApiKey || !recipientEmail) {
+      console.warn('⚠️ Email not configured. Set RESEND_API_KEY and RECIPIENT_EMAIL environment variables in Vercel.');
+    }
     
     res.json({ 
       success: true, 
       message: "Thank you for your message! I'll get back to you soon.",
-      id: Date.now() // Simple ID for reference
+      id: Date.now()
     });
   } catch (error) {
     console.error('Contact form error:', error);
