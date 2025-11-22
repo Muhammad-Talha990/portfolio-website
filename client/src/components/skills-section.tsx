@@ -1,23 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface SkillBarProps {
   skill: string;
   percentage: number;
+  delay?: number;
 }
 
-function SkillBar({ skill, percentage }: SkillBarProps) {
+function SkillBar({ skill, percentage, delay = 0 }: SkillBarProps) {
   const [isAnimated, setIsAnimated] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = () => {
-    if (!isAnimated) {
-      setIsAnimated(true);
+  useEffect(() => {
+    // Use IntersectionObserver to detect when the skill bar comes into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isAnimated) {
+            // Add delay for staggered animation effect
+            setTimeout(() => {
+              setIsAnimated(true);
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+      }
+    );
+
+    if (barRef.current) {
+      observer.observe(barRef.current);
     }
-  };
+
+    return () => {
+      if (barRef.current) {
+        observer.unobserve(barRef.current);
+      }
+    };
+  }, [isAnimated, delay]);
 
   return (
     <div 
+      ref={barRef}
       className="skill-item" 
-      onMouseEnter={handleMouseEnter}
       data-testid={`skill-${skill.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
     >
       <div className="flex justify-between mb-2">
@@ -26,7 +52,7 @@ function SkillBar({ skill, percentage }: SkillBarProps) {
       </div>
       <div className="w-full bg-gray-700 rounded-full h-2">
         <div 
-          className="skill-bar bg-gradient-to-r from-primary-blue to-accent-blue h-2 rounded-full" 
+          className="skill-bar bg-gradient-to-r from-primary-blue to-accent-blue h-2 rounded-full transition-all duration-1000 ease-out" 
           style={{ width: isAnimated ? `${percentage}%` : '0%' }}
         />
       </div>
@@ -84,7 +110,8 @@ export default function SkillsSection() {
                 <SkillBar 
                   key={index} 
                   skill={item.skill} 
-                  percentage={item.percentage} 
+                  percentage={item.percentage}
+                  delay={index * 100}
                 />
               ))}
             </div>

@@ -212,13 +212,13 @@ export default function ContactSection() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-3 p-4 glassmorphism rounded-xl hover:scale-105 transition-all duration-300 hover-glow group"
+                    className="flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3 p-3 sm:p-4 glassmorphism rounded-xl hover:scale-105 transition-all duration-300 hover-glow group"
                     data-testid={`social-${link.name.toLowerCase()}`}
                   >
-                    <span className="text-xl group-hover:scale-110 transition-transform">
+                    <span className="text-lg sm:text-xl group-hover:scale-110 transition-transform flex-shrink-0">
                       {link.icon}
                     </span>
-                    <span className="font-medium">{link.name}</span>
+                    <span className="font-medium text-sm sm:text-base truncate">{link.name}</span>
                   </a>
                 ))}
               </div>

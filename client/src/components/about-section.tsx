@@ -7,17 +7,16 @@ export default function AboutSection() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto" data-testid="about-subtitle">
-          I’m a Computer Science student and software engineer based in Islamabad, Pakistan.  
-With expertise in Flutter, web development, and modern technology stacks, I specialize in building responsive, cross-platform, and impactful digital solutions. My focus is on merging creativity with functionality to deliver real value to both users and businesses.
-          </p>
+          I’m a professional Web & Mobile App Developer focused on creating user-centric, 
+          performance-optimized digital experiences. I develop responsive websites and 
+          cross-platform mobile apps with clean architecture, smooth UI/UX, and reliable 
+          functionality.   </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-1">
-            Enthusiastic and detail-oriented software engineer with a strong passion for mobile app development using Flutter.  
-Skilled in Dart, Firebase, REST APIs, React, and UI/UX design principles, I enjoy working across both frontend and backend technologies to create seamless digital experiences. With hands-on experience in building e-commerce, job search, and finance management apps, I’m dedicated to developing robust, scalable, and innovative solutions that address real-world challenges.
-            </p>
+            I enjoy transforming ideas into practical solutions—whether it’s building a new product from scratch or improving an existing system. My approach combines modern development practices, attention to detail, and clear communication to ensure every project is delivered on time and aligned with client goals.   </p>
             {/* <p className="text-lg text-gray-300 leading-relaxed" data-testid="about-paragraph-2">
             I believe great design is defined not only by its appearance but by its functionality. Each project I undertake is an opportunity to solve complex challenges through thoughtful design and innovative solutions.  </p>
              */}
